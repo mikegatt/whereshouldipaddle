@@ -1,5 +1,5 @@
 const { getDiffieHellman } = require("crypto");
-const math = require('mathjs');
+const math = require("mathjs");
 const express = require("express");
 const app = express();
 const path = require("path");
@@ -71,6 +71,27 @@ function getflow(station) {
 function whereshouldipaddle() {
   var wheretogo = [];
   var totalflow = maids.flow[0].value + taplow.flow[0].value;
+
+  if (totalflow < 20) {
+    wheretogo.push(
+      "Summer sun vibes - suncream on and head to Boulters or Chertsey!"
+    );
+  }
+  if (totalflow < 50 && totalflow > 20) {
+    wheretogo.push("1 gate fun - try out Hambleden for a change?");
+  }
+  if (totalflow < 140 && totalflow > 50) {
+    wheretogo.push("Go time - time to get haul ass to Hurley");
+  }
+  if (totalflow > 100) {
+    wheretogo.push("Sunbury or Shepperton could be worth a butchers");
+  }
+  if (totalflow > 140 && totalflow < 170) {
+    wheretogo.push("Might be time to become a Marsh-ian");
+  }
+  if (maids.flow[0].value > 150 && maids.flow[0].value < 185) {
+    wheretogo.push("Time to go big on Boulters!");
+  }
   wheretogo.push(
     "Maids: " +
       math.round(maids.flow[0].value) +
@@ -80,23 +101,5 @@ function whereshouldipaddle() {
       math.round(totalflow) +
       "cumecs"
   );
-  if (totalflow < 20) {
-    wheretogo.push("Summertime vibes - head to Boulters or Chertsey!");
-  }
-  if (totalflow < 50 && totalflow > 20) {
-    wheretogo.push("1 gate fun - try out Hambleden");
-  }
-  if (totalflow < 140 && totalflow > 50) {
-    wheretogo.push("Time to get haul ass to Hurley");
-  }
-  if (totalflow > 100) {
-    wheretogo.push("Sunbury or Shepperton could be worth a butchers");
-  }
-  if (totalflow > 140 && totalflow < 170) {
-    wheretogo.push("Might be time to check out Marsh");
-  }
-  if (maids.flow[0].value > 150 && maids.flow[0].value < 185) {
-    wheretogo.push("Time to go big on Boulters!");
-  }
   return wheretogo;
 }
