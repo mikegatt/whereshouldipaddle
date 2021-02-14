@@ -10,8 +10,12 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "autoprefixer": "^10.2.4",
         "express": "^4.17.1",
+        "mathjs": "^9.2.0",
         "node-fetch": "^2.6.1",
+        "postcss": "^8.2.6",
+        "postcss-cli": "^8.3.1",
         "pug": "^3.0.0"
     }
 }
