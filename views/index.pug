@@ -2,6 +2,7 @@ html
   head
     title THAMES WEIR STAKEOUT TIME
     link(rel='stylesheet', type='text/css', href='style.css')
+
   body
 
 video(autoplay muted loop id="myVideo")
@@ -12,4 +13,14 @@ div(class='content')
   each val in message
     h1= val
 
-<!--button(id="myBtn" onclick="myFunction()") Pause-->
+  button(id="myBtn") I can count - give me the numbers
+
+div(id='myModal',class='modal')
+  div(class="modal-content")
+    span(class="close") &times;
+    p The Thames is split at the Maids gauge - some of it has already headed down the Jubilee river which has its own gauge at Taplow
+    each num in numbers
+      p= num
+    a(href='http://chalfontparkcc.org.uk/flow/') Check out the great set of stats here from CPCC
+
+script(src='modal.js')
